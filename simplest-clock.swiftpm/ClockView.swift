@@ -23,5 +23,13 @@ struct ClockView: View {
             .onReceive(Timer.publish(every: 1, on: .main, in: .common).autoconnect()) { _ in
                 now = Date()
             }
+            .onAppear {
+                // Disable the idle timer when the view appears
+                UIApplication.shared.isIdleTimerDisabled = true
+            }
+            .onDisappear {
+                // Re-enable the idle timer when the view disappears
+                UIApplication.shared.isIdleTimerDisabled = false
+            }
     }
 }
