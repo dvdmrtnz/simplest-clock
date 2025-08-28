@@ -12,14 +12,14 @@ struct ClockView: View {
     
     var body: some View {
         Text(Self.df.string(from: now))
-            .font(.system(size: 1000, weight: .bold))
+            .font(.system(size: 1000, weight: .black))
             .minimumScaleFactor(0.1)
             .monospacedDigit()
             .lineLimit(1)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(.black)
             .foregroundStyle(.white)
-            .scaleEffect(x: 1, y: 2)
+            .scaleEffect(x: 1, y: 2.5)
             .onReceive(Timer.publish(every: 1, on: .main, in: .common).autoconnect()) { _ in
                 now = Date()
             }
